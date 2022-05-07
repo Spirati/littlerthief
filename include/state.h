@@ -7,6 +7,7 @@
  */
 typedef struct GameState {
     SDL_Window *window;
+    SDL_Surface *windowSurface;
 } GameState;
 
 /**

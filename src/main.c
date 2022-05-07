@@ -1,11 +1,21 @@
 #include <stdio.h>
 #include "littlethief.h"
-#include "SDL.h"
 
-int main(void) {
+int main(int argc, char *argv[]) {
 	GameState state = gameInit();
 
-	if(state.window == NULL) return 1;
+	if(state.window == NULL) {
+		printf(SDL_GetError());
+		return 1;
+	}
+
+	FontFile orp = loadFont(TEXT_FONT_NAME, TEXT_FONT_BBX, TEXT_FONT_BBY, TEXT_FONT_WIDTH);
+	if(orp.atlasSurface == NULL) {
+		gameExit(state);
+		return 1;
+	}
+	writeChar(orp, state.windowSurface, 0, 16, 16);
+	SDL_UpdateWindowSurface(state.window);
 
 	bool quit = false;
 	while(!quit) {
