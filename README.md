@@ -25,3 +25,6 @@ cl.exe \
     /link /SUBSYSTEM:WINDOWS
 ```
 Maybe someday I'll convert this to a makefile, but for now you can just paste it into a `.bat` or a build task or something. Omit `/Zi` for a release build.
+
+## Credits:
+The fonts used are borrowed from Micah Elliot's [Orp Bitmap Fonts](https://github.com/MicahElliott/Orp-Font).

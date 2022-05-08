@@ -2,14 +2,6 @@
 #include "SDL.h"
 
 /**
- * @brief A struct representing a script file
- * 
- */
-typedef struct ScriptFile {
-    SDL_RWops *file;
-} ScriptFile;
-
-/**
  * @brief A struct representing a font as converted from BDF format
  * 
  */
@@ -19,6 +11,18 @@ typedef struct FontFile {
     uint16_t atlasWidth;
     SDL_Surface *atlasSurface;
 } FontFile;
+
+/**
+ * @brief Represents a cursor for text
+ * 
+ */
+typedef struct TextCursor {
+    int x;
+    int y;
+    int baseX;
+    int baseY;
+    int lineWidth;
+} TextCursor;
 
 /**
  * @brief Write a character to a surface using the index of the character in a font's atlas
@@ -33,12 +37,23 @@ typedef struct FontFile {
 int writeChar(FontFile font, SDL_Surface *target, uint16_t index, int x, int y);
 
 /**
- * @brief Load a monospaced font from the assets/font directory
+ * @brief Write a character to a surface based on the position of a cursor
  * 
- * @param fontName The name of the font face to load
+ * @param cursor The cursor to use for text positioning
+ * @param font The font to use
+ * @param target The surface to place the character
+ * @param index The index of the character in the font's atlas
+ * @return int 
+ */
+int cursorWriteChar(TextCursor *cursor, FontFile font, SDL_Surface *target, uint16_t index);
+
+/**
+ * @brief Load a monospaced font
+ * 
+ * @param fontName The path to the font atlas
  * @param bbx The width of the character bounding box
  * @param bby The height of the character bounding box
  * @param atlasWidth The number of characters in a row of the font atlas
  * @return FontFile 
  */
-FontFile loadFont(const char* fontName, uint8_t bbx, uint8_t bby, uint16_t atlasWidth);
+FontFile loadFont(const char* fontPath, uint8_t bbx, uint8_t bby, uint16_t atlasWidth);
