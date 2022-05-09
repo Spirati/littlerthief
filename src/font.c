@@ -30,3 +30,7 @@ int cursorWriteChar(TextCursor *cursor, FontFile font, SDL_Surface *target, uint
     cursor->x += font.bbx;
     return result;
 }
+
+void cursorWriteLine(TextCursor *cursor, FontFile font, SDL_Surface *target, uint16_t *buffer, uint16_t count) {
+    for(int i = 0; i < count; i++) cursorWriteChar(cursor, font, target, buffer[i]);
+} 

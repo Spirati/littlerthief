@@ -1,6 +1,11 @@
 #pragma once
 #include "SDL.h"
 
+#define TEXT_FONT_NAME  "assets/font/orpMedium.png"
+#define TEXT_FONT_BBX   6
+#define TEXT_FONT_BBY   12
+#define TEXT_FONT_WIDTH 68
+
 /**
  * @brief A struct representing a font as converted from BDF format
  * 
@@ -46,6 +51,8 @@ int writeChar(FontFile font, SDL_Surface *target, uint16_t index, int x, int y);
  * @return int 
  */
 int cursorWriteChar(TextCursor *cursor, FontFile font, SDL_Surface *target, uint16_t index);
+
+void cursorWriteLine(TextCursor *cursor, FontFile font, SDL_Surface *target, uint16_t *buffer, uint16_t count);
 
 /**
  * @brief Load a monospaced font
