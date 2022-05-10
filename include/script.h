@@ -29,6 +29,13 @@ typedef struct ScriptFile {
  */
 ScriptFile loadScript(const char* scriptPath);
 
+/**
+ * @brief Read a single character from a script file
+ * 
+ * @param script Script to read from
+ * @return int16_t The index read (or EOF/EOL)
+ */
 int16_t readChar(ScriptFile script);
 
+// Currently unused?
 uint16_t readLine(ScriptFile script);

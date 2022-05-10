@@ -71,7 +71,4 @@ int main(int argc, char *argv[]) {
 
 
 // FIXME: double check all headers for pragma once and function documentation
-// TODO: design chunk-based script system
-	// speaker index, post-line effects, etc.?
-// TODO: add speaker functionality to python script conversion
 // TODO: document tooling for script conversion

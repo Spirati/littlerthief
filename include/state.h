@@ -51,8 +51,25 @@ GameState gameInit(void);
  */
 void gameExit(GameState state);
 
+/**
+ * @brief Process the event queue
+ * 
+ * @param state The state containing gameplay objects
+ * @return true Ready to exit
+ * @return false Keep running
+ */
 bool eventLoop(GameState* state);
 
+/**
+ * @brief Parse the 2 header bytes from a line from the current script (nametag + line flags)
+ * 
+ * @param state The state containing the script to digest
+ */
 void digestName(GameState* state);
 
+/**
+ * @brief Prepare the screen + state for the next line
+ * 
+ * @param state 
+ */
 void consumeLine(GameState* state);

@@ -52,6 +52,15 @@ int writeChar(FontFile font, SDL_Surface *target, uint16_t index, int x, int y);
  */
 int cursorWriteChar(TextCursor *cursor, FontFile font, SDL_Surface *target, uint16_t index);
 
+/**
+ * @brief Write a whole line of text to a cursor at once; for now only used for nametags
+ * 
+ * @param cursor The cursor to use for text positioning
+ * @param font The font to use
+ * @param target The surface to place the character
+ * @param buffer The source of indices to write
+ * @param count How many characters to draw
+ */
 void cursorWriteLine(TextCursor *cursor, FontFile font, SDL_Surface *target, uint16_t *buffer, uint16_t count);
 
 /**
